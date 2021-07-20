@@ -1,0 +1,16 @@
+{
+  "name": "telegram_bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "canvas": "^2.8.0",
+    "moment": "^2.29.1",
+    "node-html-to-image": "^3.2.0",
+    "node-telegram-bot-api": "^0.53.0"
+  },
+  "devDependencies": {
+    "json": "^11.0.0"
+  }
+}
