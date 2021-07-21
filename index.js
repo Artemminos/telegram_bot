@@ -70,10 +70,10 @@ const timetableSort = (current_week) => {
 }
 const printResultFn = (pair) => {
     return `
-    Название: ${pair?.subject_name}
-    Время: ${pair?.pairStart.slice(11, 16) + ' — ' + pair?.pairEnd.slice(11, 16)}
-    Аудитория: ${pair?.audiences.map((item, index) => index === 0 ? `/ ${item.name}` : `${item.name}`)}
-    Учитель: ${pair?.teachers.map((i) => nameTeacherTransform(i.name))} 
+    Название: ${pair?.subject_name}\n
+    Время: ${pair?.pairStart.slice(11, 16) + ' — ' + pair?.pairEnd.slice(11, 16)}\n
+    Аудитория: ${pair?.audiences.map((item, index) => index === 0 ? `/ ${item.name}` : `${item.name}`)}\n
+    Учитель: ${pair?.teachers.map((i) => nameTeacherTransform(i.name))} \n
     //////////////////////////////////////////////////////////////////
      `
 }
@@ -113,19 +113,14 @@ bot.on('message', async (msg) => {
                 Cookie: 'CABINETBSTUSESS=ia1tsgejr22hnpgc297popdse8; REMEMBERME=QXBwXEVudGl0eVxVc2VyOllXTmpRSFJsYzNRdVpHVjI6MTY1Nzg3NjkzMjo0MzJiMzJiMDNjZDQzNDFiOWM2YzEwMTNkNjI1NGVmYTM2NzFmYTYwNDgzOTgwYWU3YzZlM2FhNWUxY2RjODBj'
             }
         }
-        /*  let timeTable = await axios(fetchTimeTableConf).then(res => {
+         let timeTable = await axios(fetchTimeTableConf).then(res => {
               let current_week = res.data.result.current_week
               return timetableSort(current_week)
-          })*/
-        let timetable = [
-            'Алгебра',
-            '/////////',
-            'Рисование',
-            '//////////'
-        ]
+          })
+
         let message = '';
-        timetable.map((item, index) => {
-            message += item
+        timeTable.map((item, index) => {
+            message += printResultFn(item)
         })
         await bot.sendMessage(chatId, message);
 
